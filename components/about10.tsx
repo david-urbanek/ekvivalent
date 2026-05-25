@@ -86,7 +86,7 @@ const About10 = ({ className }: About10Props) => {
                   className="my-12 overflow-hidden rounded-2xl"
                 >
                   <img
-                    src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw12.jpeg"
+                    src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Jan Hevessy – Ekvivalent"
                     className="w-full object-cover"
                   />

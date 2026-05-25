@@ -267,7 +267,7 @@ const DesktopMenuItem = ({ item, index }: DesktopMenuItemProps) => {
         <NavigationMenuTrigger className="bg-transparent">
           {item.title}
         </NavigationMenuTrigger>
-        <NavigationMenuContent className="!rounded-2xl !p-0">
+        <NavigationMenuContent className="!rounded-2xl !p-0 z-[500] mt-1">
           <div className="grid w-[45.25rem] grid-cols-[22.5rem_1fr] gap-4 p-3">
             <div className="flex flex-col gap-3">
               <div className="relative h-52 overflow-hidden rounded-xl">

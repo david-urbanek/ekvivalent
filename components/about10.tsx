@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
+import { FadeInText } from "@/components/fade-in-text";
 import { cn } from "@/lib/utils";
 
 const fadeUp = (delay = 0) => ({
@@ -21,6 +22,7 @@ const profile = {
   team: [
     {
       id: "01",
+      image: "/jan-hevessy.jpg",
       item: "Jan Hevessy",
       type: "Zakladatel & Managing Partner",
       credentials: ["Oxford · Private Equity", "Wharton · Family Wealth Management", "Columbia Business School"],
@@ -69,7 +71,9 @@ const About10 = ({ className }: About10Props) => {
 
           <div className="w-full md:w-2/3 md:p-6">
             <div className="max-w-4xl">
-              <motion.h1 {...fadeUp()} className="mb-12 text-7xl font-semibold">O nás</motion.h1>
+              <motion.h1 {...fadeUp()} className="mb-12 text-6xl font-semibold md:text-7xl">
+                <FadeInText text="O nás" />
+              </motion.h1>
 
               <div className="space-y-12">
                 <motion.p {...fadeUp(0.05)} className="w-full text-2xl leading-[36px] font-medium md:max-w-2xl">
@@ -81,41 +85,39 @@ const About10 = ({ className }: About10Props) => {
                   <p className="leading-relaxed">{profile.vision}</p>
                 </motion.div>
 
-                <motion.div
-                  {...fadeUp(0.05)}
-                  className="my-12 overflow-hidden rounded-2xl"
-                >
-                  <img
-                    src="https://images.unsplash.com/photo-1462396240927-52058a6a84ec?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Jan Hevessy – Ekvivalent"
-                    className="w-full object-cover"
-                  />
-                </motion.div>
-
                 <motion.div {...fadeUp(0.05)}>
                   <h2 className="mb-8 text-2xl font-medium">Tým</h2>
                   <div className="space-y-0">
-                    {profile.team.map(({ id, item, type, credentials, bio }) => (
-                      <div key={id} className="border-b py-6">
-                        <div className="flex items-start justify-between gap-4 mb-3">
-                          <div className="flex items-center gap-4">
-                            <span className="font-mono text-sm text-muted-foreground">{id}</span>
-                            <span className="text-lg font-medium">{item}</span>
+                    {profile.team.map(({ id, image, item, type, credentials, bio }) => (
+                      <div key={id} className="flex flex-col gap-6 border-b py-6 sm:flex-row">
+                        {image && (
+                          <img
+                            src={image}
+                            alt={`${item} – Ekvivalent`}
+                            className="w-full shrink-0 rounded-xl object-cover sm:w-64 lg:w-80"
+                          />
+                        )}
+                        <div className="flex-1">
+                          <div className="mb-4">
+                            <div className="flex items-center gap-4">
+                              <span className="font-mono text-sm text-muted-foreground">{id}</span>
+                              <span className="text-xl font-medium">{item}</span>
+                            </div>
+                            <p className="ml-10 mt-0.5 text-sm text-muted-foreground">{type}</p>
                           </div>
-                          <span className="text-sm text-muted-foreground shrink-0">{type}</span>
+                          {bio && (
+                            <p className="ml-10 text-sm text-muted-foreground leading-relaxed mb-3">{bio}</p>
+                          )}
+                          {credentials && (
+                            <div className="ml-10 flex flex-wrap gap-2">
+                              {credentials.map((c) => (
+                                <span key={c} className="text-xs border rounded-full px-3 py-1 text-muted-foreground">
+                                  {c}
+                                </span>
+                              ))}
+                            </div>
+                          )}
                         </div>
-                        {bio && (
-                          <p className="ml-10 text-sm text-muted-foreground leading-relaxed mb-3">{bio}</p>
-                        )}
-                        {credentials && (
-                          <div className="ml-10 flex flex-wrap gap-2">
-                            {credentials.map((c) => (
-                              <span key={c} className="text-xs border rounded-full px-3 py-1 text-muted-foreground">
-                                {c}
-                              </span>
-                            ))}
-                          </div>
-                        )}
                       </div>
                     ))}
                   </div>

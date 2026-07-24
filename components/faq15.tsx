@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import { Building2, Handshake, Layers, Shield } from "lucide-react";
 
+import { FadeInText } from "@/components/fade-in-text";
 import { cn } from "@/lib/utils";
 
 interface FaqItem {
@@ -24,31 +25,31 @@ const defaultItems: FaqItem[] = [
     icon: Building2,
     heading: "Rozumíme rodinným firmám",
     description:
-      "Pocházíme z prostředí rodinných a vlastnicky řízených firem. Chápeme jejich jedinečné výzvy, mezilidské vztahy i příležitosti – nejen jako poradci, ale jako lidé, kteří tím sami prošli.",
+      "Víme, že ve hře není jen byznys, ale i rodina, vztahy a jméno, které firmu desítky let nese. Sami z tohoto prostředí pocházíme – a proto řešíme čísla i emoce, které k nim patří.",
   },
   {
     icon: Layers,
-    heading: "Komplexní servis od A do Z",
+    heading: "Provedeme vás celým procesem",
     description:
-      "Od prvotní analýzy a valuace až po úspěšné dokončení transakce – provázíme vás celou cestou bez mezer a zbytečných překvapení. Jeden tým, jeden proces, jeden cíl.",
+      "Prodej nebo předání firmy většina majitelů řeší poprvé v životě. My ten proces známe do detailu – od ocenění přes vyjednávání až po podpis. Vy se můžete dál věnovat firmě.",
   },
   {
     icon: Handshake,
-    heading: "Dlouhodobé partnerství",
+    heading: "Nástupnictví bez konfliktů",
     description:
-      "Nejsme poradci na jedno použití. Budujeme vztahy postavené na důvěře, které přetrvají i po uzavření transakce. Váš úspěch je naší referencí.",
+      "Generační obměna je nejčastější moment, kdy rodinná firma klopýtne. Pomůžeme nastavit předání tak, aby bylo férové pro rodinu a bezpečné pro firmu – ať nástupce je, nebo není.",
   },
   {
     icon: Shield,
     heading: "Diskrétnost jako základ",
     description:
-      "Každý případ řešíme s maximální diskrétností. Vaše firemní informace jsou v bezpečí – tak, jak to u rodinných firem vždy musí být.",
+      "O záměru prodat nesmí předčasně vědět zaměstnanci, konkurence ani obchodní partneři. Celý proces vedeme důvěrně a informace pouštíme jen tomu, komu skutečně patří.",
   },
 ];
 
 const Faq15 = ({
   title = "Proč Ekvivalent?",
-  subtitle = "Nejsme běžná poradenská firma. Pocházíme z rodinných firem a rozumíme jejich jedinečným výzvám.",
+  subtitle = "Prodej nebo předání firmy uděláte jednou za život. My jsme takových kroků doprovodili desítky – a víme, co v nich rozhoduje.",
   items = defaultItems,
   className,
 }: Faq15Props) => {
@@ -61,9 +62,9 @@ const Faq15 = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-            className="text-center text-3xl font-semibold md:text-5xl lg:mx-14"
+            className="text-center text-4xl font-semibold md:text-6xl lg:mx-14"
           >
-            {title}
+            <FadeInText text={title} />
           </motion.h2>
           {subtitle && (
             <motion.p
@@ -86,8 +87,10 @@ const Faq15 = ({
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.85, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
               >
-                <div className="flex items-center gap-2 md:gap-2.5">
-                  <item.icon className="size-5 shrink-0 md:size-6" />
+                <div className="flex items-center gap-3">
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#5985fb] to-[#b8d8f0]">
+                    <item.icon className="size-5 text-white" />
+                  </div>
                   <h3 className="font-semibold md:text-lg">{item.heading}</h3>
                 </div>
                 <p className="text-sm text-muted-foreground md:text-base">

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, CheckCircle } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { FadeInText } from "@/components/fade-in-text";
 import { cn } from "@/lib/utils";
 
 type ServiceProps = {
@@ -18,7 +19,7 @@ const services: ServiceProps[] = [
   {
     title: "Zvýšení hodnoty firmy",
     description:
-      "Strategické poradenství a optimalizace procesů pro růst ziskovosti a hodnoty vaší firmy.",
+      "Firma šlape, ale stojí a padá s vámi? Snížíme závislost na majiteli, zprofesionalizujeme řízení a připravíme firmu na růst – i na den, kdy ji jednou budete předávat.",
     bullets: [
       "Strategické poradenství",
       "Optimalizace procesů",
@@ -32,7 +33,7 @@ const services: ServiceProps[] = [
   {
     title: "Prodej firmy",
     description:
-      "Komplexní doprovod celým procesem prodeje – od valuace až po úspěšné dokončení transakce.",
+      "Prodáváte celoživotní dílo – a chcete, aby přežilo i bez vás. Najdeme kupce, který na vaši práci naváže, a pohlídáme, abyste neprodávali pod cenou ani pod tlakem.",
     bullets: [
       "Příprava firmy na prodej",
       "Valuace",
@@ -46,7 +47,7 @@ const services: ServiceProps[] = [
   {
     title: "Koupě firmy",
     description:
-      "Vyhledání vhodných příležitostí, due diligence a strukturování transakce.",
+      "Chcete růst rychleji, než dovolí organický vývoj? Najdeme akviziční cíl, který k vaší firmě sedí, prověříme ho a nastavíme transakci tak, aby dávala smysl i za pět let.",
     bullets: [
       "Due diligence",
       "Vyhledání příležitostí",
@@ -60,7 +61,7 @@ const services: ServiceProps[] = [
   {
     title: "Management Buy-Out",
     description:
-      "Pomoc manažerům s převzetím firmy včetně financování a právního doprovodu.",
+      "Když v rodině nástupce není, může firmu převzít management, který ji zná. Pomůžeme s financováním i strukturou převzetí, aby bylo férové pro obě strany.",
     bullets: [
       "Pomoc manažerům",
       "Financování MBO",
@@ -82,27 +83,30 @@ const Services14 = ({ className }: Services14Props) => {
     <section className={cn("py-32", className)}>
       <div className="container">
         <div className="mb-16">
+          <p className="mb-3 text-sm font-medium tracking-wider text-muted-foreground uppercase">
+            Služby
+          </p>
           <h2 className="mb-4 text-4xl font-medium text-foreground md:text-6xl">
-            Naše služby
+            <FadeInText text="Naše služby" />
           </h2>
           <p className="max-w-xl text-base tracking-tight text-muted-foreground">
-            Firma funguje, ale její hodnota neodpovídá plnému potenciálu.
-            Pomůžeme vám to změnit – od strategie až po úspěšné dokončení
-            transakce.
+            Ať firmu předáváte dětem, prodáváte, nebo chcete, aby příští
+            generaci předala víc, než jste zdědili vy – provedeme vás od
+            prvního rozhodnutí po podpis.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="flex flex-col gap-8">
           {services.map((service, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.85, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-              className="group flex flex-col overflow-hidden rounded-2xl border bg-card"
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+              className="group flex flex-col overflow-hidden rounded-2xl border bg-card transition-colors hover:border-foreground/25 md:flex-row"
             >
-              <div className="relative h-80 overflow-hidden">
+              <div className="relative h-64 shrink-0 overflow-hidden md:h-auto md:w-1/2">
                 <img
                   src={service.image}
                   alt={service.title}
@@ -110,29 +114,29 @@ const Services14 = ({ className }: Services14Props) => {
                 />
               </div>
 
-              <div className="flex flex-1 flex-col justify-between p-8">
+              <div className="flex flex-1 flex-col justify-between p-8 md:p-12">
                 <div>
                   <span className="mb-3 inline-block font-mono text-xs text-muted-foreground">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mb-3 text-xl font-semibold lg:text-2xl">
+                  <h3 className="mb-3 text-2xl font-semibold lg:text-3xl">
                     {service.title}
                   </h3>
-                  <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mb-6 leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
-                  <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+                  <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5">
                     {service.bullets.map((bullet, i) => (
                       <li key={i} className="flex items-center gap-2">
-                        <CheckCircle className="size-3.5 shrink-0 text-foreground" />
-                        <span className="text-xs font-medium">{bullet}</span>
+                        <CheckCircle className="size-4 shrink-0 text-[#5985fb]" />
+                        <span className="text-sm font-medium">{bullet}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="mt-8">
+                <div className="mt-10">
                   <Button
-                    variant="outline"
+                    variant="ghost"
                     className="w-fit"
                     render={<a href={service.url} />}
                     nativeButton={false}

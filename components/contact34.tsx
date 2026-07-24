@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { FadeInText } from "@/components/fade-in-text";
 import { cn } from "@/lib/utils";
 
 const contactFormSchema = z.object({
@@ -97,11 +98,11 @@ const Contact34 = ({
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             >
-              <div className="overflow-hidden rounded-3xl">
+              <div className="overflow-hidden rounded-2xl">
                 <img
                   src={image}
                   alt=""
-                  className="aspect-[4/3] w-full object-cover lg:aspect-[3/4]"
+                  className="aspect-[4/3] w-full object-cover"
                 />
               </div>
               <div className="absolute right-6 bottom-6 left-6 rounded-2xl bg-background/95 p-6 shadow-lg backdrop-blur-sm lg:right-8 lg:bottom-8 lg:left-8 lg:p-8">
@@ -150,8 +151,8 @@ const Contact34 = ({
                 <p className="mb-3 text-sm font-medium tracking-wider text-muted-foreground uppercase">
                   {tagline}
                 </p>
-                <h1 className="text-3xl font-medium tracking-tight md:text-4xl">
-                  {title}
+                <h1 className="text-4xl font-medium tracking-tight md:text-5xl">
+                  <FadeInText text={title} />
                 </h1>
               </div>
 

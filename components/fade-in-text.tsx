@@ -42,12 +42,14 @@ const FadeInText = ({ text, className, wordClassName, delay = 0, immediate = fal
         ? { animate: "visible" }
         : { whileInView: "visible", viewport: { once: true, margin: "-80px" } })}
     >
-      {text.split(" ").map((w, i) => (
-        <motion.span key={i} variants={word} className={cn("inline-block whitespace-pre", wordClassName)}>
+      {text.split(" ").flatMap((w, i, words) => [
+        <motion.span key={`w-${i}`} variants={word} className={cn("inline-block", wordClassName)}>
           {w}
-          {i < text.split(" ").length - 1 ? " " : ""}
-        </motion.span>
-      ))}
+        </motion.span>,
+        // Plain text node (not part of the non-wrapping span above) so the
+        // browser has an actual line-break opportunity between words.
+        i < words.length - 1 ? " " : null,
+      ])}
     </motion.span>
   );
 };

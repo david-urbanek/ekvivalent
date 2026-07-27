@@ -22,7 +22,7 @@ const profile = {
   team: [
     {
       id: "01",
-      image: "/jan-hevessy.jpg",
+      image: "/Generated Image July 26, 2026 - 5_35PM.webp",
       item: "Jan Hevessy",
       type: "Zakladatel & Managing Partner",
       credentials: ["Oxford · Private Equity", "Wharton · Family Wealth Management", "Columbia Business School"],
@@ -48,7 +48,7 @@ const About10 = ({ className }: About10Props) => {
                     <span className="text-xs font-bold text-primary-foreground uppercase tracking-tight">EKV</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold">{profile.title}</h3>
+                    <h3 className="text-lg font-semibold">{profile.title}</h3>
                     <p className="text-sm text-muted-foreground">
                       {profile.subtitle}
                     </p>
@@ -89,12 +89,12 @@ const About10 = ({ className }: About10Props) => {
                   <h2 className="mb-8 text-2xl font-medium">Tým</h2>
                   <div className="space-y-0">
                     {profile.team.map(({ id, image, item, type, credentials, bio }) => (
-                      <div key={id} className="flex flex-col gap-6 border-b py-6 sm:flex-row">
+                      <div key={id} className="flex flex-col gap-6 border-b py-6">
                         {image && (
                           <img
                             src={image}
                             alt={`${item} – Ekvivalent`}
-                            className="w-full shrink-0 rounded-xl object-cover sm:w-64 lg:w-80"
+                            className="aspect-[3/2] w-full rounded-xl object-cover"
                           />
                         )}
                         <div className="flex-1">

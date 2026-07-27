@@ -1,5 +1,7 @@
 import { Navbar8 } from "@/components/navbar8";
 import { Hero238 } from "@/components/hero238";
+import { StatsStrip } from "@/components/stats-strip";
+import { ProcessSteps } from "@/components/process-steps";
 import { PhotoBand } from "@/components/photo-band";
 import { Faq15 } from "@/components/faq15";
 import { Services14 } from "@/components/services14";
@@ -15,8 +17,10 @@ export default function Home() {
         <Hero238 />
         {/* border-t closes the bottom edge of the hero's reference strip */}
         <div className="border-t">
+          <StatsStrip />
           <section id="proc-ekvivalent" className="py-20"><Faq15 className="py-0" /></section>
           <section id="sluzby" className="py-20"><Services14 className="py-0" /></section>
+          <section id="jak-to-probiha" className="py-0"><ProcessSteps className="py-20" /></section>
           {/* Decorative band — rounded, aligned with the section content width */}
           <div className="container">
             <PhotoBand />

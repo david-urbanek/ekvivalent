@@ -1,5 +1,13 @@
 "use client";
-import { Menu, X } from "lucide-react";
+import {
+  Handshake,
+  Menu,
+  Search,
+  TrendingUp,
+  Users,
+  X,
+  type LucideIcon,
+} from "lucide-react";
 import type { Dispatch, SetStateAction } from "react";
 import { useEffect, useRef, useState } from "react";
 
@@ -25,11 +33,17 @@ interface MenuItem {
   title: string;
   url?: string;
   className?: string;
+  featured?: {
+    label: string;
+    description: string;
+    url: string;
+    image: string;
+  };
   links?: {
     label: string;
     description?: string;
     url: string;
-    image?: string;
+    icon?: LucideIcon;
   }[];
 }
 
@@ -44,7 +58,7 @@ interface DesktopMenuItemProps {
 }
 
 const LOGO = {
-  url: "#",
+  url: "/",
   src: "",
   alt: "Ekvivalent logo",
   title: "ekvivalent",
@@ -53,52 +67,50 @@ const LOGO = {
 const NAVIGATION: MenuItem[] = [
   {
     title: "Služby",
+    featured: {
+      label: "Přehled služeb",
+      description: "Provedeme vás celým životním cyklem firmy — od růstu hodnoty až po prodej.",
+      url: "/#sluzby",
+      image: "/haru-AYj6l-BV3oQ-unsplash.webp",
+    },
     links: [
       {
         label: "Zvýšení hodnoty firmy",
-        description: "Strategické poradenství a optimalizace procesů pro růst ziskovosti",
-        url: "#sluzby",
-        image:
-          "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-6jEVl7xPH3E-unsplash.jpg",
+        description: "Strategické poradenství a optimalizace procesů pro růst ziskovosti.",
+        url: "/sluzby/zvyseni-hodnoty-firmy",
+        icon: TrendingUp,
       },
       {
         label: "Prodej firmy",
-        description: "Komplexní doprovod od valuace až po dokončení transakce",
-        url: "#sluzby",
-        image:
-          "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-gDmVqxZt1hg-unsplash.jpg",
+        description: "Komplexní doprovod od valuace až po dokončení transakce.",
+        url: "/sluzby/prodej-firmy",
+        icon: Handshake,
       },
       {
         label: "Koupě firmy",
-        description: "Vyhledání příležitostí, due diligence a strukturování transakce",
-        url: "#sluzby",
-        image:
-          "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-9__Q24sJqKg-unsplash.jpg",
+        description: "Vyhledání příležitostí, due diligence a strukturování transakce.",
+        url: "/sluzby/koupe-firmy",
+        icon: Search,
       },
       {
         label: "Management Buy-Out",
-        description: "Pomoc manažerům s převzetím firmy včetně financování",
-        url: "#sluzby",
-        image:
-          "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-duxeKbu9FDE-unsplash.jpg",
+        description: "Pomoc manažerům s převzetím firmy včetně financování.",
+        url: "/sluzby/management-buy-out",
+        icon: Users,
       },
     ],
   },
   {
     title: "Generační obměna",
-    url: "#generacni-obmena",
+    url: "/generacni-obmena",
   },
   {
     title: "O nás",
-    url: "#o-nas",
-  },
-  {
-    title: "Kariéra",
-    url: "#kariera",
+    url: "/#o-nas",
   },
   {
     title: "Kontakt",
-    url: "#kontakt",
+    url: "/#kontakt",
   },
 ];
 
@@ -109,23 +121,23 @@ const MOBILE_NAVIGATION: MenuItem[] = [
     links: [
       {
         label: "Zvýšení hodnoty firmy",
-        url: "#sluzby",
+        url: "/sluzby/zvyseni-hodnoty-firmy",
       },
       {
         label: "Prodej firmy",
-        url: "#sluzby",
+        url: "/sluzby/prodej-firmy",
       },
       {
         label: "Koupě firmy",
-        url: "#sluzby",
+        url: "/sluzby/koupe-firmy",
       },
       {
         label: "Management Buy-Out",
-        url: "#sluzby",
+        url: "/sluzby/management-buy-out",
       },
       {
         label: "Generační obměna",
-        url: "#generacni-obmena",
+        url: "/generacni-obmena",
       },
     ],
   },
@@ -135,15 +147,11 @@ const MOBILE_NAVIGATION: MenuItem[] = [
     links: [
       {
         label: "O nás",
-        url: "#o-nas",
-      },
-      {
-        label: "Kariéra",
-        url: "#kariera",
+        url: "/#o-nas",
       },
       {
         label: "Kontakt",
-        url: "#kontakt",
+        url: "/#kontakt",
       },
     ],
   },
@@ -162,7 +170,7 @@ const NAV_BUTTONS: {
 }[] = [
   {
     label: "Konzultace",
-    url: "#kontakt",
+    url: "/#kontakt",
     variant: "default",
   },
 ];
@@ -259,8 +267,6 @@ const Navbar8 = ({ className }: Navbar8Props) => {
 };
 
 const DesktopMenuItem = ({ item, index }: DesktopMenuItemProps) => {
-  const [hoveredIdx, setHoveredIdx] = useState(0);
-
   if (item.links) {
     return (
       <NavigationMenuItem key={`desktop-menu-item-${index}`} value={`${index}`}>
@@ -268,52 +274,51 @@ const DesktopMenuItem = ({ item, index }: DesktopMenuItemProps) => {
           {item.title}
         </NavigationMenuTrigger>
         <NavigationMenuContent className="!rounded-2xl !p-0 z-[500] mt-1">
-          <div className="grid w-[45.25rem] grid-cols-[22.5rem_1fr] gap-4 p-3">
-            <div className="flex flex-col gap-3">
-              <div className="relative h-52 overflow-hidden rounded-xl">
-                {item.links.map((link, i) => (
+          <div className="grid w-[52rem] grid-cols-[19rem_1fr] gap-4 p-4">
+            {item.featured && (
+              <a
+                href={item.featured.url}
+                className="flex flex-col overflow-hidden rounded-xl border transition-colors hover:bg-muted/50"
+              >
+                <div className="min-h-44 flex-1 overflow-hidden bg-muted">
                   <img
-                    key={i}
-                    src={link.image}
-                    alt={link.label}
-                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
-                      i === hoveredIdx ? "opacity-100" : "opacity-0"
-                    }`}
+                    src={item.featured.image}
+                    alt=""
+                    className="h-full w-full object-cover"
                   />
-                ))}
-              </div>
-              <div className="relative min-h-[2.5rem] px-1">
-                {item.links.map((link, i) => (
-                  <p
-                    key={i}
-                    className={`absolute text-sm leading-snug text-muted-foreground transition-opacity duration-200 ${
-                      i === hoveredIdx ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                    {link.description}
+                </div>
+                <div className="flex flex-col gap-1.5 p-4">
+                  <h3 className="font-semibold">{item.featured.label}</h3>
+                  <p className="text-sm leading-snug text-muted-foreground">
+                    {item.featured.description}
                   </p>
-                ))}
-              </div>
-            </div>
-            <div>
-              <div className="p-4 leading-normal font-bold">{item.title}</div>
-              <ul>
-                {item.links.map((link, i) => (
-                  <li key={`desktop-nav-sublink-${i}`}>
-                    <a
-                      href={link.url}
-                      className="flex items-center rounded-lg px-4 py-3 hover:bg-muted"
-                      onMouseEnter={() => setHoveredIdx(i)}
-                      onMouseLeave={() => setHoveredIdx(0)}
-                    >
-                      <h3 className="leading-normal font-medium">
+                </div>
+              </a>
+            )}
+            <ul className="grid grid-cols-2 content-start gap-2">
+              {item.links.map((link, i) => (
+                <li key={`desktop-nav-sublink-${i}`}>
+                  <a
+                    href={link.url}
+                    className="flex h-full flex-col gap-2.5 rounded-xl p-3 transition-colors hover:bg-muted"
+                  >
+                    {link.icon && (
+                      <span className="flex size-10 items-center justify-center rounded-lg border bg-muted/50">
+                        <link.icon className="size-5" />
+                      </span>
+                    )}
+                    <span className="flex flex-col gap-1">
+                      <h3 className="leading-normal font-semibold">
                         {link.label}
                       </h3>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                      <p className="text-sm leading-snug text-muted-foreground">
+                        {link.description}
+                      </p>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </NavigationMenuContent>
       </NavigationMenuItem>

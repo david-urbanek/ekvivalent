@@ -24,7 +24,14 @@ const WordRotate = ({ words, duration = 2800, className }: WordRotateProps) => {
   }, [words.length, duration]);
 
   return (
-    <span className="inline-grid overflow-hidden py-1 align-bottom">
+    <span className="inline-grid justify-items-center overflow-hidden py-1 align-bottom lg:justify-items-start">
+      {/* Invisible sizers stacked in the same grid cell reserve the width of the
+          longest word, so the surrounding line never reflows when words swap. */}
+      {words.map((w) => (
+        <span key={w} aria-hidden className="invisible col-start-1 row-start-1">
+          {w}
+        </span>
+      ))}
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.span
           key={words[index]}
@@ -32,7 +39,7 @@ const WordRotate = ({ words, duration = 2800, className }: WordRotateProps) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: "-60%" }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className={cn("inline-block", className)}
+          className={cn("col-start-1 row-start-1 inline-block", className)}
         >
           {words[index]}
         </motion.span>

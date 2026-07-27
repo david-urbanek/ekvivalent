@@ -26,9 +26,8 @@ const services: ServiceProps[] = [
       "Příprava na růst",
       "Zvýšení ziskovosti",
     ],
-    image:
-      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-6jEVl7xPH3E-unsplash.jpg",
-    url: "#kontakt",
+    image: "/Generated Image July 26, 2026 - 5_22PM.webp",
+    url: "/sluzby/zvyseni-hodnoty-firmy",
   },
   {
     title: "Prodej firmy",
@@ -42,7 +41,7 @@ const services: ServiceProps[] = [
     ],
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-gDmVqxZt1hg-unsplash.jpg",
-    url: "#kontakt",
+    url: "/sluzby/prodej-firmy",
   },
   {
     title: "Koupě firmy",
@@ -56,7 +55,7 @@ const services: ServiceProps[] = [
     ],
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-9__Q24sJqKg-unsplash.jpg",
-    url: "#kontakt",
+    url: "/sluzby/koupe-firmy",
   },
   {
     title: "Management Buy-Out",
@@ -70,7 +69,7 @@ const services: ServiceProps[] = [
     ],
     image:
       "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-duxeKbu9FDE-unsplash.jpg",
-    url: "#kontakt",
+    url: "/sluzby/management-buy-out",
   },
 ];
 
@@ -141,7 +140,8 @@ const Services14 = ({ className }: Services14Props) => {
                     render={<a href={service.url} />}
                     nativeButton={false}
                   >
-                    Zjistit více <ArrowUpRight className="ml-2 h-4 w-4" />
+                    Zjistit více{" "}
+                    <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5" />
                   </Button>
                 </div>
               </div>

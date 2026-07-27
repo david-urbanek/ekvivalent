@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
+import { AuroraBackground } from "@/components/aurora-background";
 import { Button } from "@/components/ui/button";
 import { FadeInText } from "@/components/fade-in-text";
 import { LogoStrip } from "@/components/logo-strip";
@@ -23,37 +24,6 @@ const ease = [0.22, 1, 0.36, 1] as const;
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease } },
-};
-
-// Modified aurora from Aceternity UI (npx shadcn@latest add
-// https://ui.aceternity.com/registry/aurora-background.json) — custom colors and animate class
-const AuroraBackground = () => {
-  return (
-    <div className="absolute inset-0 overflow-hidden bg-[#f3f7ff]">
-      <div
-        className="absolute inset-0 overflow-hidden"
-        style={
-          {
-            "--gray-200": "#5985fb",
-            "--gray-400": "#7293fa",
-            "--gray-800": "#7bb8e1",
-            "--black": "#ddeeff",
-            "--white": "#fff",
-            "--transparent": "transparent",
-          } as React.CSSProperties
-        }
-      >
-        <div
-          className={cn(
-            `pointer-events-none absolute -inset-[10px] animate-aurora-background [background-image:var(--white-gradient),var(--aurora)] [background-size:300%,_200%] opacity-60 blur-[10px] filter will-change-transform [--aurora:repeating-linear-gradient(100deg,var(--black)_10%,var(--gray-400)_15%,var(--gray-200)_20%,var(--white)_25%,var(--gray-800)_30%)] [--white-gradient:repeating-linear-gradient(100deg,var(--white)_0%,var(--white)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--white)_16%)] after:absolute after:inset-0 after:animate-aurora-background after:[background-image:var(--white-gradient),var(--aurora)] after:[background-size:200%,_100%] after:mix-blend-multiply after:content-[""]`,
-            `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]`,
-          )}
-        ></div>
-      </div>
-      {/* Blend into the white page below */}
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-white" />
-    </div>
-  );
 };
 
 const Hero238 = ({ className }: Hero238Props) => {
@@ -84,7 +54,7 @@ const Hero238 = ({ className }: Hero238Props) => {
               >
                 <WordRotate
                   words={["růst.", "uspět.", "vzkvétat."]}
-                  className="text-[#4a78f0]"
+                  className="text-[#5985fb]"
                 />
               </motion.span>
             </span>
@@ -96,9 +66,12 @@ const Hero238 = ({ className }: Hero238Props) => {
             Prodej firmy, předání další generaci nebo vstup investora –
             provedeme vás rozhodnutími, která majitel dělá jen jednou za život.
           </motion.p>
-          <motion.div variants={fadeUp} className="flex items-center gap-4">
+          <motion.div
+            variants={fadeUp}
+            className="flex w-full max-w-xs flex-col items-center gap-3 sm:w-auto sm:max-w-none sm:flex-row sm:gap-4"
+          >
             <Button
-              className="h-11 rounded-full px-6 text-base"
+              className="h-11 w-full rounded-full px-6 text-base sm:w-auto"
               render={<a href="#kontakt" />}
               nativeButton={false}
             >
@@ -106,11 +79,12 @@ const Hero238 = ({ className }: Hero238Props) => {
             </Button>
             <Button
               variant="ghost"
-              className="h-11 rounded-full px-6 text-base"
+              className="h-11 w-full rounded-full px-6 text-base sm:w-auto"
               render={<a href="#sluzby" />}
               nativeButton={false}
             >
-              Zjistit více <ArrowRight />
+              Zjistit více{" "}
+              <ArrowRight className="transition-transform group-hover/button:translate-x-0.5" />
             </Button>
           </motion.div>
         </motion.div>

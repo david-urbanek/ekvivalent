@@ -31,20 +31,18 @@ const defaultProps: Footer5Props = {
     {
       title: "Služby",
       links: [
-        { name: "Zvýšení hodnoty firmy", href: "#sluzby" },
-        { name: "Prodej firmy", href: "#sluzby" },
-        { name: "Koupě firmy", href: "#sluzby" },
-        { name: "Management Buy-Out", href: "#sluzby" },
-        { name: "Generační obměna", href: "#generacni-obmena" },
+        { name: "Zvýšení hodnoty firmy", href: "/sluzby/zvyseni-hodnoty-firmy" },
+        { name: "Prodej firmy", href: "/sluzby/prodej-firmy" },
+        { name: "Koupě firmy", href: "/sluzby/koupe-firmy" },
+        { name: "Management Buy-Out", href: "/sluzby/management-buy-out" },
+        { name: "Generační obměna", href: "/generacni-obmena" },
       ],
     },
     {
       title: "Společnost",
       links: [
-        { name: "O nás", href: "#o-nas" },
-        { name: "Kariéra", href: "#kariera" },
-        { name: "Kontakt", href: "#kontakt" },
-        { name: "Zásady ochrany osobních údajů", href: "#" },
+        { name: "O nás", href: "/#o-nas" },
+        { name: "Kontakt", href: "/#kontakt" },
       ],
     },
     {

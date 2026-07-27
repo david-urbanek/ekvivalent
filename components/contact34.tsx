@@ -105,7 +105,7 @@ const Contact34 = ({
                   className="aspect-[4/3] w-full object-cover"
                 />
               </div>
-              <div className="absolute right-6 bottom-6 left-6 rounded-2xl bg-background/95 p-6 shadow-lg backdrop-blur-sm lg:right-8 lg:bottom-8 lg:left-8 lg:p-8">
+              <div className="mt-4 rounded-2xl bg-background/95 p-6 shadow-lg backdrop-blur-sm lg:absolute lg:right-8 lg:bottom-8 lg:left-8 lg:mt-0 lg:p-8">
                 <div className="grid gap-4 sm:grid-cols-3">
                   <div>
                     <p className="mb-1 text-xs font-medium tracking-wider text-muted-foreground uppercase">

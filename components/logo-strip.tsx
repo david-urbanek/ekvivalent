@@ -47,10 +47,13 @@ const LogoStrip = ({ className }: LogoStripProps) => {
     <div className={cn(className)}>
       <div className="overflow-hidden">
         <div className="-mt-px -ml-px grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-          {clients.map((client) => (
+          {clients.map((client, index) => (
             <div
               key={client.id}
-              className="relative flex h-36 items-center justify-center border-t border-l px-8 lg:h-40"
+              className={cn(
+                "relative h-36 items-center justify-center border-t border-l px-8 lg:h-40",
+                index === 4 ? "hidden md:flex" : "flex",
+              )}
             >
               <span className="absolute top-3 left-4 text-xs text-muted-foreground/70">
                 {client.id}

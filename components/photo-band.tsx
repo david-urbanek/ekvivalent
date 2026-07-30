@@ -12,7 +12,7 @@ const PhotoBand = ({ className }: PhotoBandProps) => {
     <div className={className}>
       <div className="relative h-96 overflow-hidden rounded-2xl border md:h-[34rem]">
         <motion.img
-          src="/haru-AYj6l-BV3oQ-unsplash.webp"
+          src="/industry-park.png"
           alt=""
           initial={{ scale: 1.08 }}
           whileInView={{ scale: 1 }}

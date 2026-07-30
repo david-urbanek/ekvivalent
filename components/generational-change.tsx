@@ -299,7 +299,7 @@ const GenerationalChange = ({ className }: GenerationalChangeProps) => {
       <div className="container py-10">
         <div className="relative h-[28rem] overflow-hidden rounded-2xl border md:h-[36rem]">
           <motion.img
-            src="/grant-ritchie-FBkrQhnLQoY-unsplash.webp"
+            src="/pipeline.jpg"
             alt=""
             initial={{ scale: 1.08 }}
             whileInView={{ scale: 1 }}
@@ -363,7 +363,7 @@ const GenerationalChange = ({ className }: GenerationalChangeProps) => {
                 </p>
                 <div className="overflow-hidden rounded-2xl border">
                   <img
-                    src="/syed-ayan-malik-DI3MlpRdYeE-unsplash.webp"
+                    src="/yellow-pipeline.png"
                     alt=""
                     className="h-56 w-full object-cover"
                   />

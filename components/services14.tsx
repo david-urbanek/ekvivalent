@@ -26,7 +26,7 @@ const services: ServiceProps[] = [
       "Příprava na růst",
       "Zvýšení ziskovosti",
     ],
-    image: "/Generated Image July 26, 2026 - 5_22PM.webp",
+    image: "/automation.png",
     url: "/sluzby/zvyseni-hodnoty-firmy",
   },
   {
@@ -39,8 +39,7 @@ const services: ServiceProps[] = [
       "Hledání kupujících",
       "Doprovod procesem",
     ],
-    image:
-      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-gDmVqxZt1hg-unsplash.jpg",
+    image: "/yellow-building.png",
     url: "/sluzby/prodej-firmy",
   },
   {
@@ -53,8 +52,7 @@ const services: ServiceProps[] = [
       "Strukturování transakce",
       "Post-merger integrace",
     ],
-    image:
-      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-9__Q24sJqKg-unsplash.jpg",
+    image: "/industry-hall.png",
     url: "/sluzby/koupe-firmy",
   },
   {
@@ -67,8 +65,7 @@ const services: ServiceProps[] = [
       "Právní struktura",
       "Podpora při jednání",
     ],
-    image:
-      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-duxeKbu9FDE-unsplash.jpg",
+    image: "/industry-hall-outside.png",
     url: "/sluzby/management-buy-out",
   },
 ];

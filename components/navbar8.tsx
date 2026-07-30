@@ -71,7 +71,7 @@ const NAVIGATION: MenuItem[] = [
       label: "Přehled služeb",
       description: "Provedeme vás celým životním cyklem firmy — od růstu hodnoty až po prodej.",
       url: "/#sluzby",
-      image: "/haru-AYj6l-BV3oQ-unsplash.webp",
+      image: "/industry-building.png",
     },
     links: [
       {

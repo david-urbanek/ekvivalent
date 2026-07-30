@@ -77,8 +77,7 @@ export const servicePages: ServicePageData[] = [
       { id: "04", title: "Řízená realizace", description: "Implementace změn s průběžným monitoringem." },
       { id: "05", title: "Výsledky a škálování", description: "Měření výsledků a kontinuální optimalizace." },
     ],
-    image:
-      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-6jEVl7xPH3E-unsplash.jpg",
+    image: "/automation.png",
   },
   {
     slug: "prodej-firmy",
@@ -119,7 +118,7 @@ export const servicePages: ServicePageData[] = [
       { id: "05", title: "Vyjednávání podmínek", description: "Vyjednávání podmínek transakce." },
       { id: "06", title: "Uzavření transakce", description: "Uzavření smlouvy a předání firmy." },
     ],
-    image: "/syed-ayan-malik-DI3MlpRdYeE-unsplash.webp",
+    image: "/yellow-building.png",
   },
   {
     slug: "koupe-firmy",
@@ -160,8 +159,7 @@ export const servicePages: ServicePageData[] = [
       { id: "05", title: "Vyjednávání transakce", description: "Vyjednání a uzavření transakce." },
       { id: "06", title: "Post-akviziční integrace", description: "Podpora při integraci." },
     ],
-    image:
-      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-9__Q24sJqKg-unsplash.jpg",
+    image: "/industry-hall.png",
   },
   {
     slug: "management-buy-out",
@@ -202,8 +200,7 @@ export const servicePages: ServicePageData[] = [
       { id: "05", title: "Struktura transakce", description: "Strukturování transakce." },
       { id: "06", title: "Uzavření a implementace", description: "Uzavření a implementace MBO." },
     ],
-    image:
-      "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-duxeKbu9FDE-unsplash.jpg",
+    image: "/industry-hall-outside.png",
   },
 ];
 

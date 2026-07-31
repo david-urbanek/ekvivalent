@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowUpRight, LoaderIcon } from "lucide-react";
-import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
@@ -51,9 +51,6 @@ const Contact34 = ({
   className,
   onSubmit,
 }: Contact34Props) => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
-
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     mode: "onSubmit",
@@ -70,17 +67,20 @@ const Contact34 = ({
       if (onSubmit) {
         await onSubmit(data);
       } else {
-        console.log("Form submitted:", data);
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+        if (!response.ok) {
+          throw new Error("Failed to send message");
+        }
       }
-      setIsSubmitted(true);
-      setShowSuccess(true);
       form.reset();
-      setTimeout(() => setShowSuccess(false), 4500);
-      setTimeout(() => setIsSubmitted(false), 5000);
+      toast.success("E-mail úspěšně odeslán, děkujeme!");
     } catch {
       form.setError("root", {
-        message: "Something went wrong. Please try again.",
+        message: "Něco se pokazilo. Zkuste to prosím znovu.",
       });
     }
   };
@@ -155,19 +155,6 @@ const Contact34 = ({
                   <FadeInText text={title} />
                 </h1>
               </div>
-
-              {isSubmitted && (
-                <div
-                  className={cn(
-                    "mb-6 rounded-lg border border-green-500/20 bg-green-500/10 p-4 text-center transition-opacity duration-500",
-                    showSuccess ? "opacity-100" : "opacity-0",
-                  )}
-                >
-                  <p className="text-sm font-medium text-green-600 dark:text-green-400">
-                    Zpráva byla úspěšně odeslána!
-                  </p>
-                </div>
-              )}
 
               <form onSubmit={form.handleSubmit(handleFormSubmit)}>
                 <FieldGroup>

@@ -6,7 +6,6 @@ import { ArrowRight } from "lucide-react";
 import { AuroraBackground } from "@/components/aurora-background";
 import { Button } from "@/components/ui/button";
 import { FadeInText } from "@/components/fade-in-text";
-import { LogoStrip } from "@/components/logo-strip";
 import { WordRotate } from "@/components/word-rotate";
 import { cn } from "@/lib/utils";
 
@@ -89,15 +88,6 @@ const Hero238 = ({ className }: Hero238Props) => {
           </motion.div>
         </motion.div>
       </div>
-      {/* Client references anchored to the hero's bottom edge */}
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 1.4, ease }}
-        className="relative border-t bg-white/30 backdrop-blur-sm"
-      >
-        <LogoStrip />
-      </motion.div>
     </section>
   );
 };

@@ -17,7 +17,7 @@ const stats = [
     label: "let zkušeností v M&A, private equity a řízení firem",
   },
   {
-    value: 50,
+    value: 20,
     suffix: "+",
     label: "doprovozených transakcí a strategických projektů",
   },

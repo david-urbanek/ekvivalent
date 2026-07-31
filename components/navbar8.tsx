@@ -178,7 +178,7 @@ const NAV_BUTTONS: {
 const SOCIAL_LINKS = [
   {
     label: "LinkedIn",
-    url: "#",
+    url: "https://www.linkedin.com/company/ekvivalent-capital/",
   },
 ];
 
@@ -369,6 +369,8 @@ const MobileNavigationMenu = ({ open, setOpen }: MobileNavigationMenuProps) => {
                     <a
                       key={`social-link-${index}`}
                       href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-primary-foreground"
                     >
                       {link.label}

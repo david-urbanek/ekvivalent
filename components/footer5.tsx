@@ -56,7 +56,11 @@ const defaultProps: Footer5Props = {
     },
   ],
   socialLinks: [
-    { icon: <FaLinkedin className="size-5" />, href: "#", label: "LinkedIn" },
+    {
+      icon: <FaLinkedin className="size-5" />,
+      href: "https://www.linkedin.com/company/ekvivalent-capital/",
+      label: "LinkedIn",
+    },
   ],
   copyright: "© 2025 ekvivalent s.r.o. Diskrétnost a dlouhodobé partnerství jsou základem naší práce.",
 };
@@ -92,7 +96,12 @@ const Footer5 = (props: Props) => {
                 <ul className="flex flex-wrap items-center gap-2">
                   {visibleSocialLinks.map((social, idx) => (
                     <li key={idx}>
-                      <a href={social.href} aria-label={social.label}>
+                      <a
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                      >
                         <span className="flex size-10 items-center justify-center rounded-sm bg-muted transition-colors hover:text-primary [&_svg]:size-5">
                           {social.icon}
                         </span>

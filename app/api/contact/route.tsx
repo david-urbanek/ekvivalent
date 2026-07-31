@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
 
+import { ContactEmail } from "@/emails/contact-email";
+
 const contactFormSchema = z.object({
   name: z.string().min(1),
   email: z.string().min(1).email(),
@@ -37,7 +39,7 @@ export async function POST(request: Request) {
     to: CONTACT_RECIPIENT,
     replyTo: email,
     subject: `Nová zpráva z webu od ${name}`,
-    text: `Jméno: ${name}\nE-mail: ${email}\n\nZpráva:\n${message}`,
+    react: <ContactEmail name={name} email={email} message={message} />,
   });
 
   if (error) {

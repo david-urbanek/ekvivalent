@@ -8,7 +8,7 @@ const contactFormSchema = z.object({
   message: z.string().min(1),
 });
 
-const CONTACT_RECIPIENT = "jan.havessy@ekvivalent.cz";
+const CONTACT_RECIPIENT = "jan.hevessy@ekvivalent.cz";
 
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;

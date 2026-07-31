@@ -230,6 +230,7 @@ const Contact34 = ({
                   )}
 
                   <Button
+                    type="submit"
                     size="lg"
                     className="w-full"
                     disabled={form.formState.isSubmitting}
